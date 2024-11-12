@@ -36,7 +36,6 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 Go to UI  
 admin: admin  
 password: FROM_SECRET   
-```
 
 # 3 Connect repo (easy version) -not recommended   
 ```
