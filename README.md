@@ -3,9 +3,25 @@
 1. Installation argocd CLI/ argo in cluster / namespace argocd
 2. Start ArgoCD WebUI
 3. Connect repo (easy version) -not recommended  
+4. Connect repo (recommended way) - with application.yaml TO BE CONTINUED  
 
+# 0 Starting Point  
 
+Create repo like this >>> It will be used in point 3  
+```
+.
+├── apps/
+│   ├── apache/
+│   │   ├── base/
+│   │   │   ├── configmap.yaml
+│   │   │   ├── deployment-sql.yaml
+│   │   │   └── php-deployment.yaml
+│   │   ├── production/
+│   │   │   └── kustomization.yaml
+│   │   └── staging/
+│   │       └── kustomization.yaml
 
+```
 # 1 Installation argocd CLI/ argo in cluster / namespace argocd  
 Install argocd CLI
 ```
