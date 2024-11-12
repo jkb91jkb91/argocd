@@ -1,15 +1,12 @@
 # DESCRIPTION
 
-
-1. Installation argocd CLI/ argo in cluster / namespace argocd   
-2. Connect repo (easy version) -not recommended  
-
-
+1. Installation argocd CLI/ argo in cluster / namespace argocd
+2. Start ArgoCD WebUI
+3. Connect repo (easy version) -not recommended  
 
 
 
-
-# Installation argocd CLI/ argo in cluster / namespace argocd  
+# 1 Installation argocd CLI/ argo in cluster / namespace argocd  
 Install argocd CLI
 ```
 curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
@@ -25,7 +22,23 @@ Install argo in kubernetes
 kubectl apply -f  https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml -n argocd
 ```
 
-# Connect repo (easy version) -not recommended   
+# 2 Start ArgoCD WebUI
+
+Set type: LoadBalancer or type: Ingress or port-forward  
+```
+kubectl edit  svc/argocd-server -n argocd
+```
+
+Get initial password  
+```
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+```
+Go to UI  
+admin: admin  
+password: FROM_SECRET   
+```
+
+# 3 Connect repo (easy version) -not recommended   
 ```
 argocd repo add https://github.com/jkb91jkb91/argocd --username jkb91jkb91 --password TOKEN
 ```
